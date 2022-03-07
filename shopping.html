@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cards</title>
+    <style>
+      html,
+      body,
+      div,
+      span,
+      applet,
+      object,
+      iframe,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      blockquote,
+      pre,
+      a,
+      abbr,
+      acronym,
+      address,
+      big,
+      cite,
+      code,
+      del,
+      dfn,
+      em,
+      img,
+      ins,
+      kbd,
+      q,
+      s,
+      samp,
+      small,
+      strike,
+      strong,
+      sub,
+      sup,
+      tt,
+      var,
+      b,
+      u,
+      i,
+      center,
+      dl,
+      dt,
+      dd,
+      ol,
+      ul,
+      li,
+      fieldset,
+      form,
+      label,
+      legend,
+      table,
+      caption,
+      tbody,
+      tfoot,
+      thead,
+      tr,
+      th,
+      td,
+      article,
+      aside,
+      canvas,
+      details,
+      embed,
+      figure,
+      figcaption,
+      footer,
+      header,
+      hgroup,
+      menu,
+      nav,
+      output,
+      ruby,
+      section,
+      summary,
+      time,
+      mark,
+      audio,
+      video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      :root {
+        --card-color: white;
+        background-color: lightgray;
+      }
+
+      /* System Fonts as used by GitHub */
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+          "Segoe UI Symbol";
+      }
+
+      .container {
+        display: grid;
+        height: 3000px;
+        grid-template: repeat(auto-fit, 300px) / repeat(auto-fit, 300px);
+        grid-gap: 10px;
+      }
+
+      .card {
+        width: 269px;
+        background-color: white;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        color: black;
+      }
+
+      .top {
+        height: 50%;
+        background: url(./img/transLaptop.png) no-repeat center;
+        /*ololo1 @ cleanPNG.com*/
+        background-size: 80% 80%;
+      }
+
+      .bottom {
+        height: 50%;
+        background-color: var(--card-color);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        gap: 10px;
+      }
+
+      .cardTop {
+        padding: 0 0.4rem;
+        font-size: 0.8rem;
+        display: flex;
+        /* justify-content: space-between; */
+        border-bottom: 2px solid lightgray;
+      }
+
+      i:first-of-type {
+        margin-left: auto;
+      }
+
+      .fa-star {
+        color: gold;
+      }
+
+      .cardBottom {
+        padding: 0 0.4rem;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      button {
+        border: none;
+        padding: 5px 10px;
+        width: 100px;
+        background-color: rgb(51, 51, 219);
+        border-radius: 0.5rem;
+        color: white;
+        font-weight: 800;
+      }
+
+      a {
+        color: green;
+        font-size: 0.8rem;
+      }
+
+      button:active {
+        transform: translateY(2px);
+      }
+
+      .back {
+        background: linear-gradient(to right, red, purple);
+        padding: 3px;
+      }
+    </style>
+    <script
+      src="https://kit.fontawesome.com/d50e5398b7.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container"></div>
+
+    <script>
+      function createCard() {
+        const card = document.createElement(`div`);
+        card.classList.add("card");
+
+        const imageContainer = document.createElement(`div`);
+        imageContainer.classList.add("top");
+        card.appendChild(imageContainer);
+
+        const textContainer = document.createElement(`div`);
+        textContainer.classList.add("bottom");
+
+        const cardTop = document.createElement(`div`);
+        cardTop.classList.add("cardTop");
+
+        const cardTopTitle = document.createElement(`h2`);
+        cardTopTitle.appendChild(
+          document.createTextNode("Toshiba Laptop with 500GB HDD")
+        );
+        cardTop.appendChild(cardTopTitle);
+
+        for (let j = 0; j < 3; j++) {
+          const cardTopStar = document.createElement(`i`);
+          cardTopStar.classList.add("fa-solid");
+          cardTopStar.classList.add("fa-star");
+          cardTop.appendChild(cardTopStar);
+
+        }
+        
+        textContainer.appendChild(cardTop);
+
+        const cardBottom = document.createElement(`div`);
+        cardBottom.classList.add("cardBottom");
+        const cardBottomLeft = document.createElement(`div`);
+        const para = document.createElement(`p`);
+        para.textContent = "$999";
+        cardBottomLeft.appendChild(para);
+        const shippingLink = document.createElement(`a`);
+        shippingLink.textContent = "Free Shipping";
+        cardBottomLeft.appendChild(shippingLink);
+        const cardBottomRight = document.createElement(`button`);
+        cardBottomRight.appendChild(document.createTextNode("Buy Now"));
+
+        cardBottom.appendChild(cardBottomLeft);
+        cardBottom.appendChild(cardBottomRight);
+
+        textContainer.appendChild(cardBottom);
+
+        card.appendChild(textContainer);
+
+        document.querySelector(".container").appendChild(card);
+      }
+
+      for (let i = 0; i < 12; i++) {
+        createCard();
+      }
+    </script>
+  </body>
+</html>
