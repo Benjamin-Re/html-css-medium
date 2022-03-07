@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cards</title>
+    <style>
+      html,
+      body,
+      div,
+      span,
+      applet,
+      object,
+      iframe,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      blockquote,
+      pre,
+      a,
+      abbr,
+      acronym,
+      address,
+      big,
+      cite,
+      code,
+      del,
+      dfn,
+      em,
+      img,
+      ins,
+      kbd,
+      q,
+      s,
+      samp,
+      small,
+      strike,
+      strong,
+      sub,
+      sup,
+      tt,
+      var,
+      b,
+      u,
+      i,
+      center,
+      dl,
+      dt,
+      dd,
+      ol,
+      ul,
+      li,
+      fieldset,
+      form,
+      label,
+      legend,
+      table,
+      caption,
+      tbody,
+      tfoot,
+      thead,
+      tr,
+      th,
+      td,
+      article,
+      aside,
+      canvas,
+      details,
+      embed,
+      figure,
+      figcaption,
+      footer,
+      header,
+      hgroup,
+      menu,
+      nav,
+      output,
+      ruby,
+      section,
+      summary,
+      time,
+      mark,
+      audio,
+      video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      :root {
+          --card-color: rgb(94, 92, 92);
+      }
+
+      /* System Fonts as used by GitHub */
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+          "Segoe UI Symbol";
+      }
+
+      .container {
+        background-color: rgb(68, 68, 67);
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .card {
+        background: linear-gradient(to right, red, purple);
+        padding: 0.3rem;
+        height: 45vh;
+        width: 30vh;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        color: white;
+      }
+
+      .top {
+        height: 40%;
+        background: url(./img/img12.jpg) no-repeat center;
+        background-size: cover;
+      }
+
+      .bottom {
+        height: 60%;
+        background-color: var(--card-color);
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        padding: 0.2rem 1rem;
+        gap: 10px;
+      }
+
+      p {
+        font-size: 0.7rem;
+      }
+      .bottom h2 {
+        width: 100%;
+        font-weight: 800;
+      }
+
+      .bottom h3 {
+        width: 100%;
+        font-weight: 500;
+      }
+
+      button {
+        border: none;
+        padding: 5px 10px;
+        width: 100px;
+        background-color: var(--card-color);
+        color: inherit;
+      }
+
+      button:active {
+          transform: translateY(2px);
+      }
+
+      .back {
+        background: linear-gradient(to right, red, purple);
+        padding: 3px;
+      }
+
+
+
+    </style>
+    <script src="https://kit.fontawesome.com/d50e5398b7.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="container"></div>
+
+      <script>
+          function createCard() {
+            const card = document.createElement(`div`);
+            card.classList.add("card");
+            const imageContainer = document.createElement(`div`);
+            imageContainer.classList.add("top");
+            card.appendChild(imageContainer);
+            const textContainer = document.createElement(`div`);
+            textContainer.classList.add("bottom");
+            const cardTitle = document.createElement(`h2`);
+            const cardSubTitle = document.createElement(`h3`);
+            const cardText = document.createElement(`p`);
+            cardTitle.appendChild(document.createTextNode("Card Title"));
+            cardSubTitle.appendChild(document.createTextNode("Card Sub Title"));
+            cardText.appendChild(document.createTextNode(" Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat \
+                debitis saepe facere aut harum quasi labore provident maxime modi. \
+                Laboriosam nesciunt voluptatem sapiente corporis voluptate est \
+                maxime exercitationem animi inventore."));
+            textContainer.appendChild(cardTitle);
+            textContainer.appendChild(cardSubTitle);
+            textContainer.appendChild(cardText);
+            card.appendChild(textContainer);
+            
+            const buttonContainer1 = document.createElement(`div`);
+            buttonContainer1.classList.add("back");
+            const cardButton1 = document.createElement(`button`);
+            const linkIcon = document.createElement(`i`);
+            linkIcon.classList.add("fa-solid");
+            linkIcon.classList.add("fa-link");
+            cardButton1.appendChild(linkIcon);
+            cardButton1.appendChild(document.createTextNode(" Visit Site"));
+            buttonContainer1.appendChild(cardButton1);
+            
+            const buttonContainer2 = document.createElement(`div`);
+            buttonContainer2.classList.add("back");
+            const cardButton2 = document.createElement(`button`);
+            const gitIcon = document.createElement(`i`);
+            gitIcon.classList.add("fa-brands");
+            gitIcon.classList.add("fa-github");
+            cardButton2.appendChild(gitIcon);
+            cardButton2.appendChild(document.createTextNode(" Github"));
+            buttonContainer2.appendChild(cardButton2);
+
+            textContainer.appendChild(buttonContainer1);
+            textContainer.appendChild(buttonContainer2);
+            document.querySelector(".container").appendChild(card);
+        }
+
+        for(let i = 0; i < 12; i++){
+            createCard();
+        }
+          
+      </script>
+  </body>
+</html>
